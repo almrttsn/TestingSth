@@ -29,7 +29,7 @@ public class TestSpheres : MonoBehaviour
 
     public void ActivateCubesOrderSent()
     {
-        _gameManager.TestCubes.ActivateCubesOrderCame = true; //istek doðrultusunda ilgili bool'u true gönderme emri verdik.
+        _gameManager.TestCubes.ActivateCubesOrderSent = true; //istek doðrultusunda ilgili bool'u true gönderme emri verdik.
     }
 
     public void DeactivateSpheres() //küreleri deaktif etme yöntemi.
