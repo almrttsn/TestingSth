@@ -5,7 +5,7 @@ using UnityEngine;
 public class TestCubes : MonoBehaviour
 {
     [SerializeField] GameManager _gameManager;
-    [SerializeField] GameObject[] _cubes; //küpleri array içine aldýk.
+    [SerializeField] GameObject[] _cubes;                       //küpleri array içine aldýk.
     private float _waitTimer = 1f;
     public bool ActivateCubesOrderSent;
 
@@ -13,11 +13,11 @@ public class TestCubes : MonoBehaviour
     private void Start()
     {
         Debug.Log("Trying to find specific cube");
-        Debug.Log(_cubes[2].name.ToString()); //istediðimiz sýradaki küpün ismini yazdýrdýk.
-        StartCoroutine(StartCubesDeactivateProcess()); //1'er saniye aralýklarla küpleri deaktif ettik.
+        Debug.Log(_cubes[2].name.ToString());                   //istediðimiz sýradaki küpün ismini yazdýrdýk.
+        StartCoroutine(StartCubesDeactivateProcess());          //1'er saniye aralýklarla küpleri deaktif ettik.
     }
 
-    private IEnumerator StartCubesDeactivateProcess()   //1'er saniye aralýklarla küpleri deaktif ettik.
+    private IEnumerator StartCubesDeactivateProcess()           //1'er saniye aralýklarla küpleri deaktif ettik.
     {
         for (int i = 0; i < _cubes.Length; i++)
         {
@@ -27,20 +27,20 @@ public class TestCubes : MonoBehaviour
                 yield return new WaitForSeconds(_waitTimer); 
             }
         }
-        ActivateCubes();    //küpleri tekrar aktif ettik.
-        DeactiveSpheresOrderSent(); //küreleri deaktif etme emrini gönder.
+        ActivateCubes();                                        //küpleri tekrar aktif ettik.
+        DeactiveSpheresOrderSent();                             //küreleri deaktif etme emrini gönder.
     }
 
-    public void ActivateCubes() //aktive etme yöntemi.
+    public void ActivateCubes()                                 //aktive etme yöntemi.
     {
-        if(ActivateCubesOrderSent == true) //Game Manager'dan emir geldi. Emri veren TestSpheres
+        if(ActivateCubesOrderSent == true)                      //Game Manager'dan emir geldi. Emri veren TestSpheres
             for (int i = 0; i<_cubes.Length; i++)
             {
                 _cubes[i].SetActive(true);
             }
     }
 
-    public void DeactiveSpheresOrderSent() //gönderilen emirin içeriði.
+    public void DeactiveSpheresOrderSent()                      //gönderilen emirin içeriði.
     {
         _gameManager.TestSpheres.DeactivateSpheresOrderSent = true;
     }
